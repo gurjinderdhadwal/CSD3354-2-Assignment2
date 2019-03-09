@@ -4,42 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _730319_732152
+namespace 730319_732152
+namespace DelegatesAndEvents
 {
-    class Program
+    public class DelegateExercises
     {
-        public delegate void MyDelegate();
-        void Method()
+        public delegate void MyDelegate(int num);
+        void Method1(int num);
+
+        public static void Main(string[] args)
+        {
+            DelegateExercises de = new DelegateExercises();
+            de.Method2();
+        }
+
+        void Method1(int i)
         {
             Console.WriteLine("Method1");
             Console.ReadLine();
         }
-
         public void Method2()
         {
-            Delegate Delegate = new MyDelegate(Method1);
+            MyDelegate myDelegate = new MyDelegate(Method1);
             myDelegate(50);
-        }
-
-        private void Method1()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void myDelegate(int v)
-        {
-            throw new NotImplementedException();
+            myDelegate(60);
         }
     }
-}
 
-namespace DelegatesAndEvents
-{
- class Program
-{ 
-static void Main(string[] args)
-{
-    // TO DO: Call Method 2 from the Delegate Exercises Class
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DelegateExercises de = new DelegateExercises();
+            de.Method2();
         }
     }
+
 }
