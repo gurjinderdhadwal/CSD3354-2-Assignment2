@@ -7,45 +7,40 @@ using System.Threading.Tasks;
 
 namespace DelegatesAndEvents
 {
-    public class DelegateExercises
+
+    namespace DelegatesAndEvents
     {
-
-        public delegate int MyDelegate(int intValue);
-
-        public static void Main(string[] args)
+        public class Program
         {
-            DelegateExercises de = new DelegateExercises();
+            public delegate int MyDelegate(int intValue);
 
-            de.Method3();
+            public static void Main(string[] args)
+
+            {
+                DelegateExercises de = new DelegateExercises();
+                de.Method3();
+                DelegateExercises delegateExercises = new DelegateExercises();
+                delegateExercises.Method3();
+            }
         }
 
-
-        public int Method1(int intMethod1)
+        public class DelegateExercises
         {
-            Console.WriteLine("Method1");
-            Console.ReadLine();
-            return intMethod1 * 2;
+            public delegate int MyDelegate();
+            public int Method1()
+            {
 
-        }
-        public int Method2(int intMethod2)
-        {
-            return intMethod2 * 10;
-        }
+                Console.WriteLine("MyDelegate");
+                return 1;
+            }
 
+            public void Method3()
+            {
 
-        public void Method3()
-        {
-            MyDelegate myDelegate = new MyDelegate(Method1);
-            myDelegate(60);
-            int result1 = myDelegate(10);
-            Console.WriteLine(result1);
-            myDelegate = new MyDelegate(Method2);
-            int result2 = myDelegate(10);
-            Console.WriteLine(result2);
-            Console.ReadLine();
+                MyDelegate myDelegate = new MyDelegate(Method1);
+                myDelegate();
+                Console.ReadLine();
+            }
         }
     }
-
-
 }
-56
