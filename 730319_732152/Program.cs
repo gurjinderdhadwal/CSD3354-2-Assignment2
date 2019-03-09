@@ -12,6 +12,7 @@ namespace DelegatesAndEvents
     {
         class Program
         {
+
             public static void Main(string[] args)
             {
                 DelegateExercises de = new DelegateExercises();
@@ -30,6 +31,7 @@ namespace DelegatesAndEvents
             {
                 MyDelegate myDelegate = new MyDelegate(Method1);
                 myDelegate();
+                Console.WriteLine(myDelegate.ToString());
             }
         }
 
